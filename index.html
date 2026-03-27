@@ -12,318 +12,247 @@
   --text:#2C2A25;--text2:#6B6860;--text3:#9E9B94;
   --accent:#D4B5B0;--accent2:#B08F89;--accent-dark:#8A6B65;
   --teal:#1D9E75;--teal-bg:#E1F5EE;
-  --purple:#534AB7;--purple-bg:#EEEDFE;
-  --coral:#D85A30;--coral-bg:#FAECE7;
-  --blue:#378ADD;--blue-bg:#E6F1FB;
-  --pink:#D4537E;--pink-bg:#FBEAF0;
-  --amber:#BA7517;--amber-bg:#FAEEDA;
-  --gray:#888780;--green:#2D8C4E;--green-bg:#E6F5EC;
+  --coral:#D85A30;--green:#2D8C4E;--green-bg:#E6F5EC;
+  --gray:#888780;
 }
-body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+html,body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);width:100vw;height:100vh;overflow:hidden}
 .mono{font-family:'JetBrains Mono',monospace}
-.container{max-width:960px;margin:0 auto;padding:2rem 1.5rem}
-header{text-align:center;margin-bottom:2.5rem}
-header h1{font-size:1.6rem;font-weight:600;letter-spacing:-0.02em;margin-bottom:0.3rem}
-header p{font-size:0.85rem;color:var(--text2)}
-.badge{display:inline-block;background:var(--accent);color:#fff;font-size:0.65rem;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:0.04em;margin-bottom:0.8rem}
-.controls{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem 2rem;margin-bottom:1.5rem}
-.control-row{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
-.control-row:last-child{margin-bottom:0}
-.control-label{font-size:0.8rem;color:var(--text2);min-width:100px;font-weight:500}
-.control-slider{flex:1;-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;background:var(--border);outline:none}
-.control-slider::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--accent-dark);cursor:pointer;border:3px solid var(--surface);box-shadow:0 1px 4px rgba(0,0,0,0.15)}
-.control-slider::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--accent-dark);cursor:pointer;border:3px solid var(--surface);box-shadow:0 1px 4px rgba(0,0,0,0.15)}
-.control-value{font-size:1.1rem;font-weight:600;min-width:70px;text-align:right}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:1.5rem}
-.metric-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1rem 1.2rem;text-align:center;transition:all 0.3s}
-.metric-card:hover{transform:translateY(-2px)}
-.metric-label{font-size:0.7rem;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
-.metric-value{font-size:1.5rem;font-weight:700;letter-spacing:-0.02em}
-.metric-sub{font-size:0.7rem;color:var(--text3);margin-top:2px}
-.hl-default{background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);color:#fff;border-color:transparent}
-.hl-default .metric-label{color:rgba(255,255,255,0.8)}
-.hl-default .metric-sub{color:rgba(255,255,255,0.7)}
-.hl-saved{background:var(--green-bg);border-color:var(--green);color:var(--green)}
-.hl-saved .metric-label,.hl-saved .metric-sub{color:var(--green)}
-.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
-.panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem}
-.panel-title{font-size:0.8rem;font-weight:600;color:var(--text2);margin-bottom:1rem}
-.breakdown-table{width:100%;border-collapse:collapse}
-.breakdown-table th{font-size:0.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;padding:6px 0;border-bottom:1px solid var(--border);text-align:left;font-weight:500}
-.breakdown-table th:nth-child(2),.breakdown-table th:nth-child(3){text-align:right}
-.breakdown-table td{padding:8px 0;border-bottom:1px solid #f0efe9;font-size:0.82rem}
-.breakdown-table td:nth-child(2),.breakdown-table td:nth-child(3){text-align:right}
-.breakdown-table .total-row td{border-top:2px solid var(--text);border-bottom:none;font-weight:700;padding-top:10px}
-.dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
-.bar{height:4px;border-radius:2px;margin-top:4px;transition:width 0.4s ease}
+.wrap{width:100vw;height:100vh;padding:12px 22px 6px;display:flex;flex-direction:column;gap:5px}
+
+/* ── TOP ── */
+.top{display:flex;align-items:center;gap:14px}
+.top-title{flex-shrink:0}
+.top-title h1{font-size:1rem;font-weight:600;letter-spacing:-0.02em}
+.top-title p{font-size:0.58rem;color:var(--text3)}
+.badge{display:inline-block;background:var(--accent);color:#fff;font-size:0.46rem;font-weight:600;padding:1px 6px;border-radius:10px;letter-spacing:0.04em;margin-bottom:1px}
+.sliders{flex:1;display:flex;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:6px 10px}
+.sl{display:flex;align-items:center;gap:4px;flex:1}
+.sl label{font-size:0.62rem;color:var(--text2);min-width:74px;font-weight:500}
+.sl input[type=range]{flex:1;-webkit-appearance:none;appearance:none;height:3px;border-radius:2px;background:var(--border);outline:none}
+.sl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--accent-dark);cursor:pointer;border:2px solid var(--surface);box-shadow:0 1px 2px rgba(0,0,0,0.15)}
+.sl span{font-size:0.78rem;font-weight:600;min-width:46px;text-align:right}
+
+/* ── METRICS ── */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.mc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:4px 7px;text-align:center;transition:all 0.3s}
+.mc-l{font-size:0.5rem;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0}
+.mc-v{font-size:1rem;font-weight:700;letter-spacing:-0.02em}
+.mc-s{font-size:0.46rem;color:var(--text3);margin-top:0}
+.hl-d{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent}
+.hl-d .mc-l{color:rgba(255,255,255,0.8)}.hl-d .mc-s{color:rgba(255,255,255,0.7)}
+.hl-s{background:var(--green-bg);border-color:var(--green);color:var(--green)}
+.hl-s .mc-l,.hl-s .mc-s{color:var(--green)}
+
+/* ── OPT ROW ── */
+.opt-row{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.oc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:4px 7px;display:flex;align-items:center;gap:4px;transition:all 0.2s;cursor:pointer}
+.oc.on{border-color:var(--teal);background:var(--teal-bg)}
+.oc.dis{opacity:0.3;pointer-events:none}
+.ot{position:relative;width:28px;height:14px;flex-shrink:0}
+.ot input{opacity:0;width:100%;height:100%;position:absolute;cursor:pointer;margin:0;z-index:1}
+.ot .tk{position:absolute;inset:0;background:var(--border);border-radius:7px;transition:background 0.2s}
+.ot input:checked+.tk{background:var(--teal)}
+.ot .th{position:absolute;top:1.5px;left:1.5px;width:11px;height:11px;background:#fff;border-radius:50%;transition:transform 0.2s;box-shadow:0 1px 2px rgba(0,0,0,0.12)}
+.ot input:checked~.th{transform:translateX(14px)}
+.oi{flex:1;min-width:0}
+.on-nm{font-size:0.56rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.on-ds{font-size:0.46rem;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.on-sv{font-size:0.64rem;font-weight:700;color:var(--teal);min-width:40px;text-align:right;flex-shrink:0}
+
+/* ── MAIN ── */
+.mid{display:grid;grid-template-columns:1fr 1fr;gap:6px;min-height:0;align-items:stretch}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:7px 10px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.pt{font-size:0.62rem;font-weight:600;color:var(--text2);margin-bottom:3px}
+
+.tbl-wrap{flex:1;overflow-y:auto;min-height:0}
+table{width:100%;border-collapse:collapse}
+table th{font-size:0.5rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;padding:3px 0;border-bottom:1px solid var(--border);text-align:left;font-weight:500}
+table th:nth-child(2),table th:nth-child(3){text-align:right}
+table td{padding:4px 0;border-bottom:1px solid #f0efe9;font-size:0.62rem}
+table td:nth-child(2),table td:nth-child(3){text-align:right}
+table .tr td{border-top:2px solid var(--text);border-bottom:none;font-weight:700;padding-top:5px}
+.dot{display:inline-block;width:5px;height:5px;border-radius:2px;margin-right:4px;vertical-align:middle}
+.bar{height:2px;border-radius:1px;margin-top:1px;transition:width 0.4s}
 .strike{text-decoration:line-through;color:var(--text3);font-weight:400}
-.chart-wrap{position:relative;height:240px}
-.scenario-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.scenario{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1rem;text-align:center;cursor:pointer;transition:all 0.15s}
-.scenario:hover{border-color:var(--accent);transform:translateY(-2px)}
-.scenario.active{border-color:var(--accent-dark);background:var(--accent);color:#fff}
-.scenario.active .sc-label{color:rgba(255,255,255,0.8)}
-.scenario.active .sc-cost{color:#fff}
-.sc-dau{font-size:1.2rem;font-weight:700}
-.sc-label{font-size:0.65rem;color:var(--text3);margin:2px 0 6px}
-.sc-cost{font-size:0.95rem;font-weight:600;color:var(--accent-dark)}
-.opt-section{margin-top:1.5rem}
-.opt-title{font-size:0.9rem;font-weight:600;margin-bottom:0.3rem}
-.opt-sub{font-size:0.75rem;color:var(--text3);margin-bottom:1rem}
-.opt-cards{display:flex;flex-direction:column;gap:10px}
-.opt-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;transition:all 0.2s}
-.opt-card.on{border-color:var(--teal);background:var(--teal-bg)}
-.opt-card.disabled{opacity:0.35;pointer-events:none}
-.opt-toggle{position:relative;width:40px;height:22px;flex-shrink:0}
-.opt-toggle input{opacity:0;width:100%;height:100%;position:absolute;cursor:pointer;margin:0;z-index:1}
-.opt-toggle .track{position:absolute;inset:0;background:var(--border);border-radius:11px;transition:background 0.2s}
-.opt-toggle input:checked+.track{background:var(--teal)}
-.opt-toggle .thumb{position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.15)}
-.opt-toggle input:checked~.thumb{transform:translateX(18px)}
-.opt-info{flex:1;min-width:0}
-.opt-name{font-size:0.8rem;font-weight:600;margin-bottom:2px}
-.opt-desc{font-size:0.7rem;color:var(--text3);line-height:1.4}
-.opt-impact{text-align:right;min-width:80px;flex-shrink:0}
-.opt-save{font-size:0.95rem;font-weight:700;color:var(--teal)}
-.opt-tag{font-size:0.6rem;color:var(--text3);margin-top:1px}
-.compare{margin-top:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.5rem}
-.compare-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.compare-label{font-size:0.75rem;color:var(--text3);font-weight:500}
-.compare-save{font-size:0.85rem;font-weight:700;color:var(--teal)}
-.compare-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-.compare-row:last-child{margin-bottom:0}
-.bar-label{font-size:0.75rem;min-width:60px;text-align:right;color:var(--text2)}
-.bar-track{flex:1;height:26px;background:#f0efe9;border-radius:6px;overflow:hidden}
-.bar-fill{height:100%;border-radius:6px;transition:width 0.5s ease;display:flex;align-items:center;padding:0 10px}
-.bar-fill span{font-size:0.7rem;font-weight:600;color:#fff;white-space:nowrap}
-.bar-cur{background:var(--accent)}
-.bar-opt{background:var(--teal)}
-footer{text-align:center;padding:1.5rem 0 1rem;font-size:0.65rem;color:var(--text3)}
-@media(max-width:768px){
-  .metrics{grid-template-columns:repeat(2,1fr)}
-  .main-grid{grid-template-columns:1fr}
-  .scenario-grid{grid-template-columns:repeat(2,1fr)}
-}
+
+/* Right column */
+.right-col{display:flex;flex-direction:column;gap:5px}
+.chart-panel{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:5px 10px;display:flex;flex-direction:column;min-height:0;height:28vh}
+.chart-wrap{flex:1;position:relative;min-height:0}
+
+.sc-panel{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:5px 10px}
+.sc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.sc{border:1px solid var(--border);border-radius:6px;padding:3px;text-align:center;cursor:pointer;transition:all 0.15s}
+.sc:hover{border-color:var(--accent);transform:translateY(-1px)}
+.sc.active{border-color:var(--accent-dark);background:var(--accent);color:#fff}
+.sc.active .sc-l{color:rgba(255,255,255,0.8)}.sc.active .sc-c{color:#fff}
+.sc-d{font-size:0.8rem;font-weight:700}
+.sc-l{font-size:0.44rem;color:var(--text3)}
+.sc-c{font-size:0.6rem;font-weight:600;color:var(--accent-dark)}
+
+.cmp{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:5px 10px;transition:opacity 0.3s;display:flex;flex-direction:column;justify-content:center}
+.cmp-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.cmp-l{font-size:0.52rem;color:var(--text3);font-weight:500}
+.cmp-sv{font-size:0.64rem;font-weight:700;color:var(--teal)}
+.cmp-r{display:flex;align-items:center;gap:5px;margin-bottom:2px}
+.cmp-r:last-child{margin-bottom:0}
+.bl{font-size:0.52rem;min-width:32px;text-align:right;color:var(--text2)}
+.bt{flex:1;height:14px;background:#f0efe9;border-radius:3px;overflow:hidden}
+.bf{height:100%;border-radius:3px;transition:width 0.5s;display:flex;align-items:center;padding:0 5px}
+.bf span{font-size:0.48rem;font-weight:600;color:#fff;white-space:nowrap}
+.b-c{background:var(--accent)}.b-o{background:var(--teal)}
+
+.bot-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;align-items:stretch}
+
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <div class="badge">AZURE COST SIMULATOR</div>
-    <h1>Scentive 월간 운영 비용 시뮬레이터</h1>
-    <p>사용자 수에 따른 예상 Azure 인프라 비용 · 최적화 전략 시뮬레이션</p>
-  </header>
-  <div class="controls">
-    <div class="control-row">
-      <span class="control-label">일일 활성 사용자</span>
-      <input type="range" class="control-slider" id="dau" min="10" max="10000" value="100" step="10">
-      <span class="control-value" id="dau-val">100<small style="font-size:0.65rem;color:var(--text3);margin-left:2px">명</small></span>
+<div class="wrap">
+
+  <div class="top">
+    <div class="top-title">
+      <div class="badge">AZURE COST SIMULATOR</div>
+      <h1>Scentive 월간 운영 비용 시뮬레이터</h1>
+      <p>사용자 수에 따른 예상 Azure 인프라 비용 · 최적화 전략 시뮬레이션</p>
     </div>
-    <div class="control-row">
-      <span class="control-label">일기 작성률</span>
-      <input type="range" class="control-slider" id="rate" min="0.1" max="1.0" value="0.7" step="0.1">
-      <span class="control-value" id="rate-val">0.7<small style="font-size:0.65rem;color:var(--text3);margin-left:2px">건/일</small></span>
+    <div class="sliders">
+      <div class="sl"><label>일일 활성 사용자</label><input type="range" id="dau" min="10" max="10000" value="100" step="10"><span id="dv">100<small style="font-size:0.48rem;color:var(--text3)">명</small></span></div>
+      <div class="sl"><label>일기 작성률</label><input type="range" id="rate" min="0.1" max="1.0" value="0.7" step="0.1"><span id="rv">0.7<small style="font-size:0.48rem;color:var(--text3)">건/일</small></span></div>
     </div>
   </div>
+
   <div class="metrics">
-    <div class="metric-card"><div class="metric-label">MAU (추정)</div><div class="metric-value" id="m-mau">250</div><div class="metric-sub">DAU x 2.5</div></div>
-    <div class="metric-card"><div class="metric-label">월간 일기 수</div><div class="metric-value" id="m-diaries">2,100</div><div class="metric-sub">API 호출 기준</div></div>
-    <div class="metric-card hl-default" id="card-total"><div class="metric-label">월간 총비용</div><div class="metric-value mono" id="m-total">$210</div><div class="metric-sub" id="m-total-sub">현재 구조 기준</div></div>
-    <div class="metric-card" id="card-per"><div class="metric-label">인당 월비용</div><div class="metric-value mono" id="m-per">$0.84</div><div class="metric-sub">MAU 기준</div></div>
+    <div class="mc"><div class="mc-l">MAU (추정)</div><div class="mc-v" id="mau">250</div><div class="mc-s">DAU x 2.5</div></div>
+    <div class="mc"><div class="mc-l">월간 일기 수</div><div class="mc-v" id="mdi">2,100</div><div class="mc-s">API 호출 기준</div></div>
+    <div class="mc hl-d" id="ct"><div class="mc-l">월간 총비용</div><div class="mc-v mono" id="mtot">$210</div><div class="mc-s" id="mts">현재 구조 기준</div></div>
+    <div class="mc" id="cp"><div class="mc-l">인당 월비용</div><div class="mc-v mono" id="mpp">$0.84</div><div class="mc-s">MAU 기준</div></div>
   </div>
-  <div class="main-grid">
+
+  <div class="opt-row">
+    <div class="oc" id="o1c"><label class="ot"><input type="checkbox" id="o1" onchange="update()"><span class="tk"></span><span class="th"></span></label><div class="oi"><div class="on-nm">Phase 1: ACI 스펙 다운</div><div class="on-ds">4C/16G → 2C/8G · 즉시 가능</div></div><div class="on-sv" id="o1s">-$101</div></div>
+    <div class="oc" id="o2c"><label class="ot"><input type="checkbox" id="o2" onchange="update()"><span class="tk"></span><span class="th"></span></label><div class="oi"><div class="on-nm">Phase 2: ACI → CA 통합</div><div class="on-ds">ACI 고정비 제거 · Scale-to-zero</div></div><div class="on-sv" id="o2s">-$202</div></div>
+    <div class="oc" id="o3c"><label class="ot"><input type="checkbox" id="o3" onchange="update()"><span class="tk"></span><span class="th"></span></label><div class="oi"><div class="on-nm">Phase 3: GPT-4o-mini</div><div class="on-ds">감정추출 mini · 리포트만 4o</div></div><div class="on-sv" id="o3s">-$0</div></div>
+    <div class="oc" id="o4c"><label class="ot"><input type="checkbox" id="o4" onchange="update()"><span class="tk"></span><span class="th"></span></label><div class="oi"><div class="on-nm">Phase 4: Cosmos Free</div><div class="on-ds">400RU/s + 5GB 무료</div></div><div class="on-sv" id="o4s">-$0</div></div>
+  </div>
+
+  <div class="mid">
     <div class="panel">
-      <div class="panel-title">서비스별 비용 내역</div>
-      <table class="breakdown-table"><thead><tr><th>서비스</th><th>월 비용</th><th>비중</th></tr></thead><tbody id="tb"></tbody></table>
+      <div class="pt">서비스별 비용 내역</div>
+      <div class="tbl-wrap"><table><thead><tr><th>서비스</th><th>월 비용</th><th>비중</th></tr></thead><tbody id="tb"></tbody></table></div>
     </div>
-    <div class="panel">
-      <div class="panel-title">비용 구성 비율</div>
-      <div class="chart-wrap"><canvas id="donut"></canvas></div>
-    </div>
-  </div>
-  <div class="panel" style="margin-bottom:0">
-    <div class="panel-title">사용자 규모별 시나리오</div>
-    <div class="scenario-grid">
-      <div class="scenario" data-dau="50" onclick="setDau(50)"><div class="sc-dau">50</div><div class="sc-label">초기 MVP</div><div class="sc-cost" id="sc-50"></div></div>
-      <div class="scenario" data-dau="500" onclick="setDau(500)"><div class="sc-dau">500</div><div class="sc-label">소규모</div><div class="sc-cost" id="sc-500"></div></div>
-      <div class="scenario" data-dau="2000" onclick="setDau(2000)"><div class="sc-dau">2,000</div><div class="sc-label">중규모</div><div class="sc-cost" id="sc-2000"></div></div>
-      <div class="scenario" data-dau="10000" onclick="setDau(10000)"><div class="sc-dau">10,000</div><div class="sc-label">대규모</div><div class="sc-cost" id="sc-10000"></div></div>
-    </div>
-  </div>
-
-  <div class="opt-section">
-    <div class="opt-title">스케일링 최적화 전략</div>
-    <div class="opt-sub">토글을 켜면 비용이 실시간으로 재계산됩니다. 사용자 증가에 대비한 단계별 전략입니다.</div>
-    <div class="opt-cards">
-      <div class="opt-card" id="o1c">
-        <label class="opt-toggle"><input type="checkbox" id="o1" onchange="update()"><span class="track"></span><span class="thumb"></span></label>
-        <div class="opt-info"><div class="opt-name">Phase 1: ACI 스펙 다운사이즈</div><div class="opt-desc">4CPU/16GB → 2CPU/8GB · Qwen3-Embedding 0.6B (2.4GB)는 2C/8G로 충분 · 즉시 적용 가능</div></div>
-        <div class="opt-impact"><div class="opt-save" id="o1s">-$101/월</div><div class="opt-tag">즉시 가능</div></div>
-      </div>
-      <div class="opt-card" id="o2c">
-        <label class="opt-toggle"><input type="checkbox" id="o2" onchange="update()"><span class="track"></span><span class="thumb"></span></label>
-        <div class="opt-info"><div class="opt-name">Phase 2: ACI → Container Apps 통합</div><div class="opt-desc">모델 서버를 백엔드 Container Apps에 통합 · ACI 고정비 전액 제거 · Scale-to-zero 가능</div></div>
-        <div class="opt-impact"><div class="opt-save" id="o2s">-$202/월</div><div class="opt-tag">1~2주 작업</div></div>
-      </div>
-      <div class="opt-card" id="o3c">
-        <label class="opt-toggle"><input type="checkbox" id="o3" onchange="update()"><span class="track"></span><span class="thumb"></span></label>
-        <div class="opt-info"><div class="opt-name">Phase 3: GPT-4o → GPT-4o-mini 하이브리드</div><div class="opt-desc">감정 추출에 mini 사용 (94% 절감) · 월간 리포트 감성 내러티브만 GPT-4o 유지</div></div>
-        <div class="opt-impact"><div class="opt-save" id="o3s">-$0/월</div><div class="opt-tag">1일 작업</div></div>
-      </div>
-      <div class="opt-card" id="o4c">
-        <label class="opt-toggle"><input type="checkbox" id="o4" onchange="update()"><span class="track"></span><span class="thumb"></span></label>
-        <div class="opt-info"><div class="opt-name">Phase 4: Cosmos DB Free Tier 전환</div><div class="opt-desc">Serverless → Free Tier (400 RU/s + 5GB 무료) · DAU 1,000 이하 비용 $0 · DB 마이그레이션 필요</div></div>
-        <div class="opt-impact"><div class="opt-save" id="o4s">-$0/월</div><div class="opt-tag">DB 마이그레이션</div></div>
+    <div class="right-col">
+      <div class="chart-panel">
+        <div class="pt">비용 구성</div>
+        <div class="chart-wrap"><canvas id="donut"></canvas></div>
       </div>
     </div>
   </div>
 
-  <div class="compare" id="cmp" style="display:none">
-    <div class="compare-head">
-      <span class="compare-label">현재 vs 최적화 후 비교</span>
-      <span class="compare-save" id="cmp-save"></span>
+  <div class="bot-row">
+    <div class="cmp" id="cmp">
+      <div class="cmp-h"><span class="cmp-l">현재 vs 최적화 후</span><span class="cmp-sv" id="csv"></span></div>
+      <div class="cmp-r"><span class="bl">현재</span><div class="bt"><div class="bf b-c" id="b1"><span id="b1t"></span></div></div></div>
+      <div class="cmp-r"><span class="bl">최적화</span><div class="bt"><div class="bf b-o" id="b2"><span id="b2t"></span></div></div></div>
     </div>
-    <div class="compare-row">
-      <span class="bar-label">현재</span>
-      <div class="bar-track"><div class="bar-fill bar-cur" id="b1"><span id="b1t"></span></div></div>
-    </div>
-    <div class="compare-row">
-      <span class="bar-label">최적화</span>
-      <div class="bar-track"><div class="bar-fill bar-opt" id="b2"><span id="b2t"></span></div></div>
+    <div class="sc-panel">
+      <div class="pt">사용자 규모별 시나리오</div>
+      <div class="sc-grid">
+        <div class="sc" data-dau="50" onclick="setDau(50)"><div class="sc-d">50</div><div class="sc-l">초기 MVP</div><div class="sc-c" id="s50"></div></div>
+        <div class="sc" data-dau="500" onclick="setDau(500)"><div class="sc-d">500</div><div class="sc-l">소규모</div><div class="sc-c" id="s500"></div></div>
+        <div class="sc" data-dau="2000" onclick="setDau(2000)"><div class="sc-d">2,000</div><div class="sc-l">중규모</div><div class="sc-c" id="s2000"></div></div>
+        <div class="sc" data-dau="10000" onclick="setDau(10000)"><div class="sc-d">10,000</div><div class="sc-l">대규모</div><div class="sc-c" id="s10000"></div></div>
+      </div>
     </div>
   </div>
-
-  <footer>Scentive (잔향) · Azure 비용 시뮬레이터 · 2026-03-26 기준 · ACI East US 4CPU/16GB</footer>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-const dauEl=document.getElementById('dau'),rateEl=document.getElementById('rate');
+const dE=document.getElementById('dau'),rE=document.getElementById('rate');
 const C=['#534AB7','#1D9E75','#D85A30','#378ADD','#888780','#D4537E','#BA7517'];
-let chart;
+const bN=['Azure OpenAI','ACI (모델서버)','Cosmos DB','Container Apps','ACR','App Insights','Blob'];
+let ch;
 
-function calc(dau,dpd,o){
-  const mau=Math.round(dau*2.5),md=Math.round(dau*dpd*30);
-  const diI=md*800,diO=md*200,ru=Math.round(mau*0.6);
-  const rI=ru*3*2000,rO=ru*3*800;
-  let gpt;
-  if(o.mini){
-    gpt=((diI)/1e6)*0.15+((diO)/1e6)*0.6+((rI)/1e6)*2.5+((rO)/1e6)*10;
-  }else{
-    gpt=((diI+rI)/1e6)*2.5+((diO+rO)/1e6)*10;
-  }
-  let aci=202;
-  if(o.merge) aci=0;
-  else if(o.down) aci=101;
-  const cRU=md*14+ru*35+dau*10*30;
-  let db;
-  if(o.free){const g=Math.max(0.5,mau*0.005);db=g<=5?0:(g-5)*0.25;}
-  else{db=(cRU/1e6)*0.25+Math.max(0.5,mau*0.005)*0.25;}
-  const tR=md*3+dau*15*30;
-  const aS=Math.min(tR*2,2592000);
-  let ca=Math.max(0,aS*0.5-180000)*0.000024+Math.max(0,aS-360000)*0.000003+Math.max(0,tR-2e6)*4e-7;
-  if(o.merge) ca=ca*3;
-  return{costs:[gpt,aci,db,ca,5,Math.max(0,(tR*0.002/1024)-5)*2.3,0.05],mau,md};
+function calc(d,r,o){
+  const m=Math.round(d*2.5),md=Math.round(d*r*30);
+  const di=md*800,dO=md*200,ru=Math.round(m*0.6),rI=ru*3*2000,rO=ru*3*800;
+  let g;
+  if(o.mi){g=(di/1e6)*0.15+(dO/1e6)*0.6+(rI/1e6)*2.5+(rO/1e6)*10}
+  else{g=((di+rI)/1e6)*2.5+((dO+rO)/1e6)*10}
+  let a=202;if(o.mg)a=0;else if(o.dw)a=101;
+  const cR=md*14+ru*35+d*10*30;
+  let db;if(o.fr){const s=Math.max(.5,m*.005);db=s<=5?0:(s-5)*.25}else{db=(cR/1e6)*.25+Math.max(.5,m*.005)*.25}
+  const tR=md*3+d*15*30,aS=Math.min(tR*2,2592000);
+  let ca=Math.max(0,aS*.5-180000)*.000024+Math.max(0,aS-360000)*.000003+Math.max(0,tR-2e6)*4e-7;
+  if(o.mg)ca*=3;
+  return{costs:[g,a,db,ca,5,Math.max(0,(tR*.002/1024)-5)*2.3,.05],m,md}
 }
-
-function names(o){
-  const n=['Azure OpenAI','ACI (모델서버)','Cosmos DB','Container Apps','ACR','App Insights','Blob'];
-  if(o.mini) n[0]='OpenAI (mini+4o)';
-  if(o.merge) n[1]='ACI (통합됨)';
-  else if(o.down) n[1]='ACI (2C/8G)';
-  else n[1]='ACI (4C/16G)';
-  if(o.free) n[2]='Cosmos (Free)';
-  return n;
+function nm(o){
+  const n=[...bN];
+  if(o.mi)n[0]='OpenAI (mini+4o)';
+  if(o.mg)n[1]='ACI (통합)';else if(o.dw)n[1]='ACI (2C/8G)';else n[1]='ACI (4C/16G)';
+  if(o.fr)n[2]='Cosmos (Free)';
+  return n
 }
-
-function opts(){
-  return{down:document.getElementById('o1').checked,merge:document.getElementById('o2').checked,mini:document.getElementById('o3').checked,free:document.getElementById('o4').checked};
-}
-
-function f(n){return n<0.01?'0.00':n<1?n.toFixed(2):n<10?n.toFixed(1):Math.round(n).toLocaleString()}
+function op(){return{dw:document.getElementById('o1').checked,mg:document.getElementById('o2').checked,mi:document.getElementById('o3').checked,fr:document.getElementById('o4').checked}}
+function f(n){return n<.01?'0.00':n<1?n.toFixed(2):n<10?n.toFixed(1):Math.round(n).toLocaleString()}
 
 function update(){
-  const dau=+dauEl.value,dpd=+rateEl.value,o=opts();
-  document.getElementById('dau-val').innerHTML=dau.toLocaleString()+'<small style="font-size:0.65rem;color:var(--text3);margin-left:2px">명</small>';
-  document.getElementById('rate-val').innerHTML=dpd.toFixed(1)+'<small style="font-size:0.65rem;color:var(--text3);margin-left:2px">건/일</small>';
+  const d=+dE.value,r=+rE.value,o=op(),no={dw:false,mg:false,mi:false,fr:false};
+  document.getElementById('dv').innerHTML=d.toLocaleString()+'<small style="font-size:0.48rem;color:var(--text3)">명</small>';
+  document.getElementById('rv').innerHTML=r.toFixed(1)+'<small style="font-size:0.48rem;color:var(--text3)">건/일</small>';
+  const base=calc(d,r,no),rv=calc(d,r,o);
+  const bT=base.costs.reduce((a,b)=>a+b,0),oT=rv.costs.reduce((a,b)=>a+b,0);
+  const any=o.dw||o.mg||o.mi||o.fr,N=nm(o);
 
-  const no={down:false,merge:false,mini:false,free:false};
-  const base=calc(dau,dpd,no),r=calc(dau,dpd,o);
-  const bT=base.costs.reduce((a,b)=>a+b,0),oT=r.costs.reduce((a,b)=>a+b,0);
-  const any=o.down||o.merge||o.mini||o.free;
-  const N=names(o),bN=names(no);
+  document.getElementById('mau').textContent=rv.m.toLocaleString();
+  document.getElementById('mdi').textContent=rv.md.toLocaleString();
+  document.getElementById('mtot').textContent='$'+Math.round(oT).toLocaleString();
+  document.getElementById('mpp').textContent='$'+(oT/rv.m).toFixed(2);
 
-  document.getElementById('m-mau').textContent=r.mau.toLocaleString();
-  document.getElementById('m-diaries').textContent=r.md.toLocaleString();
-  document.getElementById('m-total').textContent='$'+Math.round(oT).toLocaleString();
-  document.getElementById('m-per').textContent='$'+(oT/r.mau).toFixed(2);
+  const ct=document.getElementById('ct'),cp=document.getElementById('cp');
+  if(any){ct.className='mc hl-s';document.getElementById('mts').textContent='-$'+Math.round(bT-oT)+' 절감 ('+Math.round((1-oT/bT)*100)+'%)';cp.className='mc hl-s'}
+  else{ct.className='mc hl-d';document.getElementById('mts').textContent='현재 구조 기준';cp.className='mc'}
 
-  const ct=document.getElementById('card-total'),cp=document.getElementById('card-per');
-  if(any){
-    ct.className='metric-card hl-saved';
-    document.getElementById('m-total-sub').textContent='-$'+Math.round(bT-oT)+' 절감 ('+Math.round((1-oT/bT)*100)+'%)';
-    cp.className='metric-card hl-saved';
-  }else{
-    ct.className='metric-card hl-default';
-    document.getElementById('m-total-sub').textContent='현재 구조 기준';
-    cp.className='metric-card';
-  }
-
-  if(o.merge){document.getElementById('o1').checked=false;document.getElementById('o1').disabled=true;document.getElementById('o1c').classList.add('disabled');}
-  else{document.getElementById('o1').disabled=false;document.getElementById('o1c').classList.remove('disabled');}
+  if(o.mg){document.getElementById('o1').checked=false;document.getElementById('o1').disabled=true;document.getElementById('o1c').classList.add('dis')}
+  else{document.getElementById('o1').disabled=false;document.getElementById('o1c').classList.remove('dis')}
 
   const tb=document.getElementById('tb');
-  tb.innerHTML=r.costs.map((c,i)=>{
-    const p=oT>0?Math.round(c/oT*100):0;
-    const bc=base.costs[i];
-    const diff=c<bc-0.01;
-    const cH=diff?'<span class="strike">$'+f(bc)+'</span> <span style="color:var(--teal);font-weight:600">$'+f(c)+'</span>':'<span style="font-weight:600" class="mono">$'+f(c)+'</span>';
-    return '<tr><td><span class="dot" style="background:'+C[i]+'"></span>'+N[i]+'</td><td>'+cH+'</td><td style="color:var(--text3);font-size:0.75rem">'+p+'%</td></tr><tr><td colspan="3"><div class="bar" style="width:'+p+'%;background:'+C[i]+'"></div></td></tr>';
-  }).join('')+'<tr class="total-row"><td>합계</td><td class="mono" style="font-weight:700">$'+Math.round(oT).toLocaleString()+'</td><td style="font-size:0.75rem">100%</td></tr>';
+  tb.innerHTML=rv.costs.map((c,i)=>{
+    const p=oT>0?Math.round(c/oT*100):0,bc=base.costs[i],df=c<bc-.01;
+    const h=df?'<span class="strike">$'+f(bc)+'</span> <span style="color:var(--teal);font-weight:600">$'+f(c)+'</span>':'<span style="font-weight:600" class="mono">$'+f(c)+'</span>';
+    return '<tr><td><span class="dot" style="background:'+C[i]+'"></span>'+N[i]+'</td><td>'+h+'</td><td style="color:var(--text3);font-size:0.56rem">'+p+'%</td></tr><tr><td colspan="3"><div class="bar" style="width:'+p+'%;background:'+C[i]+'"></div></td></tr>'
+  }).join('')+'<tr class="tr"><td>합계</td><td class="mono" style="font-weight:700">$'+Math.round(oT).toLocaleString()+'</td><td style="font-size:0.56rem">100%</td></tr>';
 
-  if(chart){chart.data.datasets[0].data=r.costs;chart.data.labels=N;chart.update();}
-  else{
-    chart=new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:N,datasets:[{data:r.costs,backgroundColor:C,borderWidth:0,hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.label+': $'+f(ctx.parsed)}}}}});
-  }
+  if(ch){ch.data.datasets[0].data=rv.costs;ch.data.labels=N;ch.update()}
+  else{ch=new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:N,datasets:[{data:rv.costs,backgroundColor:C,borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{display:false},tooltip:{callbacks:{label:x=>x.label+': $'+f(x.parsed)}}}}})}
 
-  document.querySelectorAll('.scenario').forEach(s=>{
-    const d=+s.dataset.dau,sr=calc(d,dpd,o),st=sr.costs.reduce((a,b)=>a+b,0);
-    s.querySelector('.sc-cost').textContent='$'+Math.round(st).toLocaleString()+'/월';
-    s.classList.toggle('active',d===dau);
+  document.querySelectorAll('.sc').forEach(s=>{
+    const dd=+s.dataset.dau,sr=calc(dd,r,o),st=sr.costs.reduce((a,b)=>a+b,0);
+    s.querySelector('.sc-c').textContent='$'+Math.round(st).toLocaleString()+'/월';
+    s.classList.toggle('active',dd===d)
   });
 
-  ['o1c','o2c','o3c','o4c'].forEach(id=>{
-    const el=document.getElementById(id);
-    const inp=el.querySelector('input');
-    if(inp&&inp.checked&&!inp.disabled) el.classList.add('on');
-    else el.classList.remove('on');
-  });
+  ['o1c','o2c','o3c','o4c'].forEach(id=>{const e=document.getElementById(id),inp=e.querySelector('input');if(inp&&inp.checked&&!inp.disabled)e.classList.add('on');else e.classList.remove('on')});
 
-  const o1only=calc(dau,dpd,{down:true,merge:false,mini:false,free:false});
-  const o2only=calc(dau,dpd,{down:false,merge:true,mini:false,free:false});
-  const o3only=calc(dau,dpd,{down:false,merge:false,mini:true,free:false});
-  const o4only=calc(dau,dpd,{down:false,merge:false,mini:false,free:true});
-  document.getElementById('o1s').textContent='-$'+Math.round(bT-o1only.costs.reduce((a,b)=>a+b,0))+'/월';
-  document.getElementById('o2s').textContent='-$'+Math.round(bT-o2only.costs.reduce((a,b)=>a+b,0))+'/월';
-  document.getElementById('o3s').textContent='-$'+f(bT-o3only.costs.reduce((a,b)=>a+b,0))+'/월';
-  document.getElementById('o4s').textContent='-$'+f(bT-o4only.costs.reduce((a,b)=>a+b,0))+'/월';
+  const o1o=calc(d,r,{dw:true,mg:false,mi:false,fr:false}),o2o=calc(d,r,{dw:false,mg:true,mi:false,fr:false}),o3o=calc(d,r,{dw:false,mg:false,mi:true,fr:false}),o4o=calc(d,r,{dw:false,mg:false,mi:false,fr:true});
+  document.getElementById('o1s').textContent='-$'+Math.round(bT-o1o.costs.reduce((a,b)=>a+b,0));
+  document.getElementById('o2s').textContent='-$'+Math.round(bT-o2o.costs.reduce((a,b)=>a+b,0));
+  document.getElementById('o3s').textContent='-$'+f(bT-o3o.costs.reduce((a,b)=>a+b,0));
+  document.getElementById('o4s').textContent='-$'+f(bT-o4o.costs.reduce((a,b)=>a+b,0));
 
   const cmp=document.getElementById('cmp');
   if(any){
-    cmp.style.display='block';
-    document.getElementById('b1').style.width='100%';
-    document.getElementById('b1t').textContent='$'+Math.round(bT)+'/월';
+    cmp.style.opacity='1';
+    document.getElementById('b1').style.width='100%';document.getElementById('b1t').textContent='$'+Math.round(bT)+'/월';
     const pct=Math.max(8,Math.round(oT/bT*100));
-    document.getElementById('b2').style.width=pct+'%';
-    document.getElementById('b2t').textContent='$'+Math.round(oT)+'/월';
-    document.getElementById('cmp-save').textContent='-'+Math.round((1-oT/bT)*100)+'% 절감 (-$'+Math.round(bT-oT)+')';
-  }else{cmp.style.display='none';}
+    document.getElementById('b2').style.width=pct+'%';document.getElementById('b2t').textContent='$'+Math.round(oT)+'/월';
+    document.getElementById('csv').textContent='-'+Math.round((1-oT/bT)*100)+'% 절감 (-$'+Math.round(bT-oT)+')'
+  }else{cmp.style.opacity='0.35';document.getElementById('csv').textContent='토글을 켜면 비교';document.getElementById('b1').style.width='100%';document.getElementById('b1t').textContent='$'+Math.round(bT)+'/월';document.getElementById('b2').style.width='100%';document.getElementById('b2t').textContent='—'}
 }
 
-function setDau(v){dauEl.value=v;update();}
-dauEl.addEventListener('input',update);
-rateEl.addEventListener('input',update);
-update();
+function setDau(v){dE.value=v;update()}
+dE.addEventListener('input',update);rE.addEventListener('input',update);update();
 </script>
 </body>
 </html>
